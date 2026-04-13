@@ -289,6 +289,19 @@ public class BlockESPRenderer {
     // ==================== Rendering ====================
 
     private void renderHighlights(PoseStack poseStack, Minecraft mc, List<BlockPosColor> blocks) {
+        // Filter against live client world so mined blocks disappear instantly,
+        // without waiting for the async cache rescan to catch up.
+        List<BlockPosColor> visible = new ArrayList<>(blocks.size());
+        BlockPos.MutableBlockPos mpos = new BlockPos.MutableBlockPos();
+        for (BlockPosColor bpc : blocks) {
+            mpos.set(bpc.x, bpc.y, bpc.z);
+            if (!mc.level.getBlockState(mpos).isAir()) {
+                visible.add(bpc);
+            }
+        }
+        if (visible.isEmpty()) return;
+        blocks = visible;
+
         Vec3 cam = mc.gameRenderer.getMainCamera().getPosition();
 
         poseStack.pushPose();
