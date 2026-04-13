@@ -1,0 +1,39 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+
+[[mods]]
+modId="blockesp"
+version="1.0.0"
+displayName="BlockESP"
+authors="MellyDevs"
+description='''
+Highlights specific blocks through walls with colored outlines.
+Supports any block from any mod. Configure via commands or in-game GUI.
+
+Keybinds:
+  H - Toggle ESP on/off
+  J - Open settings GUI
+
+Commands:
+  /besp add <block_id> [#color]
+  /besp remove <block_id>
+  /besp list
+  /besp clear
+  /besp toggle
+  /besp radius <4-128>
+'''
+
+[[dependencies.blockesp]]
+modId="forge"
+mandatory=true
+versionRange="[47.0.0,)"
+ordering="NONE"
+side="CLIENT"
+
+[[dependencies.blockesp]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,)"
+ordering="NONE"
+side="CLIENT"
