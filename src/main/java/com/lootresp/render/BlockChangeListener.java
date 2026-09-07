@@ -1,19 +1,12 @@
-package com.blockesp.render;
+package com.lootresp.render;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.SectionPos;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-/**
- * Listens for block break/place events and marks the affected
- * chunk section as dirty so the renderer rescans it immediately.
- */
-public class BlockChangeListener {
+public final class BlockChangeListener {
+    private final LootrChestESPRenderer renderer;
 
-    private final BlockESPRenderer renderer;
-
-    public BlockChangeListener(BlockESPRenderer renderer) {
+    public BlockChangeListener(LootrChestESPRenderer renderer) {
         this.renderer = renderer;
     }
 

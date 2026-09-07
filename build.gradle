@@ -6,8 +6,8 @@ plugins {
 }
 
 version = '1.0.0'
-group = 'com.blockesp'
-archivesBaseName = 'BlockESP'
+group = 'com.lootresp'
+archivesBaseName = 'LootrChestESP'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
@@ -20,7 +20,7 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             mods {
-                blockesp {
+                lootrchestesp {
                     source sourceSets.main
                 }
             }
@@ -30,17 +30,18 @@ minecraft {
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.20.1-47.2.0'
+    implementation fg.deobf(files('lib/lootr-forge-1.20-0.7.35.94.jar'))
 }
 
 jar {
     manifest {
         attributes([
-                "Specification-Title"     : "BlockESP",
-                "Specification-Vendor"    : "BlockESP",
+                "Specification-Title"     : "Lootr Chest ESP",
+                "Specification-Vendor"    : "Angus",
                 "Specification-Version"   : "1",
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "BlockESP",
+                "Implementation-Vendor"   : "Angus",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
