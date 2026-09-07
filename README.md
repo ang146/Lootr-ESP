@@ -30,6 +30,10 @@ Lootr is a compile/runtime dependency and is not embedded in this mod's jar.
 
 Run `gradlew.bat clean build`. The jar is written to `build/libs/`.
 
+## Credits
+
+This mod is based on BlockESP by mellytimes.
+
 ## License
 
 MIT
